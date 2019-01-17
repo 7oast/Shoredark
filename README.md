@@ -1,2 +1,2 @@
-# TC01
-Test Discord bot
+# Shoredark.js
+An exclusive bot for Shorelight discord servers

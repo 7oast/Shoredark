@@ -20,6 +20,15 @@ client.on('message', msg => {
     let uptime = `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
     msg.channel.send(`The bot is up for `+uptime);
   }
+  if (msg.content === '$장준') {
+    msg.reply('Liru짱...');
+  }
+  if (msg.content === '$radenika') {
+    msg.channel.send('똥겜전문가는 왜 찾으세요?');
+  }
+  if (msg.content === '$stepic') {
+    msg.channel.send('당신의 인생 머저리겜으로 대체되었다');
+  }
 });
 
 client.login(process.env.BOT_TOKEN);

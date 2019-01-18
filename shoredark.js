@@ -58,7 +58,7 @@ client.on('message', msg => {
 });
   }
   if (msg.content === '$전역') {
-    let retire = new Date("Apr 27, 2019 08:00:00").getTime();
+    let retire = new Date("Apr 27, 2019 08:00:00 +0900").getTime();
     // Get todays date and time
     let now = new Date().getTime();
 

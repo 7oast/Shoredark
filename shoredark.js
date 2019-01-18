@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 require('dotenv').config();
 
+let ver="v0.2";
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
@@ -20,6 +22,14 @@ client.on('message', msg => {
     let uptime = `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
     msg.channel.send(`The bot is up for `+uptime);
   }
+  if (msg.content === `$info`){
+    let guild = msg.guild;
+    let humans = 0;
+    guild.members.forEach(member => {
+      if (!member.user.bot) humans++;
+    });
+    msg.channel.send(`${msg.guild.name}은 ${msg.guild.createdAt}에 만들어졌으며, 총 ${humans}명이 있습니다.`);
+  }
   if (msg.content === '$장준') {
     msg.reply('Liru짱...');
   }
@@ -37,7 +47,7 @@ client.on('message', msg => {
       name: client.user.username,
       icon_url: client.user.avatarURL
     },
-    title: "v0.1",
+    title: ver,
     fields: [{
         name: "아직은 테스트 중입니다!",
         value: "별 다른 기능이 없습니다. 아직은."
@@ -46,7 +56,7 @@ client.on('message', msg => {
         value: "\u200B"
       },{
         name: "명령어",
-        value: "$help: DM 채널을 통해 도움말을 띄웁니다. \n $uptime: 봇이 실행된지 얼마나 지났는지 보여줍니다. \n $장준: 아이고 \n $radenika: 이제 똥겜 안한대요 \n $stepic: 머저리겜 그만해 \n $전역: Titancube의 전역이... 얼마나 남았는지... 보여줍니다..."
+        value: "$help: DM 채널을 통해 도움말을 띄웁니다. \n $uptime: 봇이 실행된지 얼마나 지났는지 보여줍니다. \n $장준: 아이고 \n $radenika: 이제 똥겜 안한대요 \n $stepic: 머저리겜 그만해 \n $전역: Titancube의 전역이... 얼마나 남았는지... 보여줍니다... \n $info: 서버 정보를 보여줍니다. 아직 시간, 인원 수만 구현되었습니다."
       }
     ],
     timestamp: new Date(),

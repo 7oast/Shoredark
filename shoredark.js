@@ -1,96 +1,41 @@
+const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-require('dotenv').config();
+client.commands = new Discord.Collection();
+const {
+  prefix,
+  BOT_TOKEN
+} = require('./config.json');
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-let ver="v0.2";
+for (const file of commandFiles) {
+  const command = require(`./commands/${file}`);
+
+  client.commands.set(command.name, command);
+}
+// require('dotenv').config();
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
 });
 
 client.on('message', msg => {
-  if (msg.content === '$hi') {
-    msg.reply('Ayyo');
-  }
-  if (msg.content === '$uptime') {
-    let totalSeconds = (client.uptime / 1000);
-    let days = Math.floor(totalSeconds / 86400);
-    let hours = Math.floor(totalSeconds / 3600);
-    totalSeconds %= 3600;
-    let minutes = Math.floor(totalSeconds / 60);
-    let seconds = totalSeconds % 60;
-    let uptime = `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
-    msg.channel.send(`The bot is up for `+uptime);
-  }
-  if (msg.content === `$info`){
-    let guild = msg.guild;
-    let humans = 0;
-    guild.members.forEach(member => {
-      if (!member.user.bot) humans++;
-    });
-    msg.channel.send(`${msg.guild.name}은 ${msg.guild.createdAt}에 만들어졌으며, 총 ${humans}명이 있습니다.`);
-  }
-  if (msg.content === '$장준') {
-    msg.reply('Liru짱...');
-  }
-  if (msg.content === '$radenika') {
-    msg.channel.send('똥겜전문가는 왜 찾으세요?');
-  }
-  if (msg.content === '$stepic') {
-    msg.channel.send('당신의 인생 머저리겜으로 대체되었다');
-  }
-  if (msg.content === '$help') {
-    msg.reply('DM 채널을 확인하세요!');
-    msg.author.send({embed: {
-    color: 3447003,
-    author: {
-      name: client.user.username,
-      icon_url: client.user.avatarURL
-    },
-    title: ver,
-    fields: [{
-        name: "아직은 테스트 중입니다!",
-        value: "별 다른 기능이 없습니다. 아직은."
-      },{
-        name: "\u200B",
-        value: "\u200B"
-      },{
-        name: "명령어",
-        value: "$help: DM 채널을 통해 도움말을 띄웁니다. \n $uptime: 봇이 실행된지 얼마나 지났는지 보여줍니다. \n $장준: 아이고 \n $radenika: 이제 똥겜 안한대요 \n $stepic: 머저리겜 그만해 \n $전역: Titancube의 전역이... 얼마나 남았는지... 보여줍니다... \n $info: 서버 정보를 보여줍니다. 아직 시간, 인원 수만 구현되었습니다."
-      }
-    ],
-    timestamp: new Date(),
-    footer: {
-      icon_url: client.user.avatarURL,
-      text: "© Titancube"
-    }
-  }
-});
-  }
-  if (msg.content === '$전역') {
-    let retire = new Date("Apr 27, 2019 08:00:00 +0900").getTime();
-    // Get todays date and time
-    let now = new Date().getTime();
 
-    // Find the distance between now and the count down date
-    let distance = retire - now;
 
-    // Time calculations for days, hours, minutes and seconds
-    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
-    // Display the result in the element with id="demo"
-    let retirecount = days + "일 " + hours + "시간 " + minutes + "분 " + seconds + "초";
+  const args = msg.content.slice(prefix.length).split(/ +/);
+  const command = args.shift().toLowerCase();
 
-    // If the count down is finished, write some text
-    if (distance < 0) {
-      msg.channel.send(`전역이다!`);
-    } else {
-      msg.channel.send(`Titancube 전역까지 ${retirecount} 남았습니다...`);
-    }
+  if (!client.commands.has(command)) return;
+
+  try {
+    client.commands.get(command).execute(msg, args);
+  } catch (error) {
+    console.error(error);
+    msg.reply('there was an error trying to execute that command!');
   }
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login(BOT_TOKEN);

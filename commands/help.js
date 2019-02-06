@@ -2,13 +2,14 @@ module.exports = {
   name: 'help',
   description: 'Basic info about the bot',
   execute(msg, args) {
+    const ver = `v0.4`;
     msg.reply('DM 채널을 확인하세요!');
     msg.author.send({
       embed: {
         color: 3447003,
         author: {
-          name: client.user.username,
-          icon_url: client.user.avatarURL
+          name: msg.client.user.username,
+          icon_url: msg.client.user.avatarURL
         },
         title: ver,
         fields: [{
@@ -28,7 +29,7 @@ $info: 서버 정보를 보여줍니다. 아직 시간, 인원 수만 구현되�
         }],
         timestamp: new Date(),
         footer: {
-          icon_url: client.user.avatarURL,
+          icon_url: msg.client.user.avatarURL,
           text: "© Titancube"
         }
       }

@@ -13,15 +13,17 @@ for (const file of commandFiles) {
 
   client.commands.set(command.name, command);
 }
-// require('dotenv').config();
 
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
+  let status = "$help"
+  client.user.setActivity(status, {
+    type: 'PLAYING'
+  })
 });
 
 client.on('message', msg => {
-
 
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
@@ -36,6 +38,7 @@ client.on('message', msg => {
     console.error(error);
     msg.reply('there was an error trying to execute that command!');
   }
+
 });
 
 client.login(BOT_TOKEN);

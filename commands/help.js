@@ -6,19 +6,13 @@ module.exports = {
     msg.reply('DM 채널을 확인하세요!');
     msg.author.send({
       embed: {
-        color: 3447003,
+        color: 16777215,
         author: {
           name: msg.client.user.username,
           icon_url: msg.client.user.avatarURL
         },
         title: ver,
         fields: [{
-          name: "아직은 테스트 중입니다!",
-          value: "별 다른 기능이 없습니다. 아직은."
-        }, {
-          name: "\u200B",
-          value: "\u200B"
-        }, {
           name: "명령어",
           value: `
 $help: DM 채널을 통해 도움말을 띄웁니다.

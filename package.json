@@ -1,0 +1,42 @@
+{
+  "name": "Shoredark",
+  "version": "1.0.0",
+  "description": "[![DeepScan grade](https://deepscan.io/api/teams/2873/projects/4296/branches/34987/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=2873&pid=4296&bid=34987)<br /> Just another simple bot for friends in private server.",
+  "main": "shoredark.js",
+  "dependencies": {
+    "bufferutil": "^3.0.5",
+    "discord.js": "^11.4.2",
+    "dotenv": "^6.2.0",
+    "erlpack": "github:discordapp/erlpack",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "file-system": "^2.2.2",
+    "forever": "^0.15.3",
+    "fs": "0.0.1-security",
+    "json": "^9.0.6",
+    "libsodium-wrappers": "^0.7.4",
+    "moment": "^2.24.0",
+    "node-opus": "^0.2.9",
+    "ogg": "^1.2.5",
+    "opusscript": "0.0.6",
+    "request": "^2.88.0",
+    "require": "^2.4.20",
+    "uws": "^9.148.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start" : "node shoredark.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/titancube/Shoredark.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/titancube/Shoredark/issues"
+  },
+  "homepage": "https://github.com/titancube/Shoredark#readme"
+}

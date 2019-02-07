@@ -1,5 +1,10 @@
 language: node_js
 node_js:
-- node
-- lts/*
-- 10
+  - node
+  - lts/*
+  - 10
+before_install:
+  - npm install mocha -g
+branches:
+  only:
+    - master

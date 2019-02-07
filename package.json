@@ -26,7 +26,7 @@
   "devDependencies": {},
   "scripts": {
     "start" : "node shoredark.js",
-    "test": "mocha"
+    "test": ""
   },
   "repository": {
     "type": "git",

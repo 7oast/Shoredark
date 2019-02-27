@@ -1,8 +1,9 @@
+const package = require('../package.json');
 module.exports = {
   name: 'help',
   description: 'Basic info about the bot',
   execute(msg, args) {
-    const ver = `v0.4`;
+    const ver = package.version;
     msg.reply('DM 채널을 확인하세요!');
     msg.author.send({
       embed: {

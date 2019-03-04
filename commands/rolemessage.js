@@ -6,7 +6,7 @@ module.exports = {
 \`\`$role 역할\`\` 커맨드로 원하는 채널을 얻으세요. 만약 역할을 빼고 싶다면 다시 입력하여 제거할 수 있습니다.
 \`\`\`
 역할과 이에 대응하는 카테고리
-Musician : Musician
+Creator : Creator
 Speaker: Topic-Based
 Underground - 심연
 \`\`\`

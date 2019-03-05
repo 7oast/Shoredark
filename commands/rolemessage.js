@@ -8,7 +8,8 @@ module.exports = {
 역할과 이에 대응하는 카테고리
 Creator : Creator
 Speaker: Topic-Based
-Underground - 심연
+Underground : 심연
+Gamer : Gamer
 \`\`\`
     `
     if (msg.author.id != '116455101811392512') return;

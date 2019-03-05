@@ -13,11 +13,11 @@ module.exports = {
 
     // Time calculations for days, hours, minutes and seconds
     function calculateRetire(Distance) {
-    let days = Math.floor(Distance / (1000 * 60 * 60 * 24))
-    let hours = Math.floor((Distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-    let minutes = Math.floor((Distance % (1000 * 60 * 60)) / (1000 * 60))
-    let seconds = Math.floor((Distance % (1000 * 60)) / 1000)
-    return `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`
+      let days = Math.floor(Distance / (1000 * 60 * 60 * 24))
+      let hours = Math.floor((Distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      let minutes = Math.floor((Distance % (1000 * 60 * 60)) / (1000 * 60))
+      let seconds = Math.floor((Distance % (1000 * 60)) / 1000)
+      return `${days}일 ${hours}시간 ${minutes}분 ${seconds}초`
     }
 
     // MSG!

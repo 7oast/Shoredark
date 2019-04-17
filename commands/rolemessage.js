@@ -1,5 +1,5 @@
 module.exports = {
-  name:"rolemessage",
+  name: "rolemessage",
   description: 'dev command',
   execute(msg, args) {
     let initialMessage = `Shorelight에서는 역할에 따라 볼 수 있는 채널 카테고리를 다르게 하고 있습니다.
@@ -13,7 +13,7 @@ Gamer : Gamer
 \`\`\`
     `
     if (msg.author.id != '116455101811392512') return;
-    
+
     msg.channel.send(initialMessage)
   },
 };

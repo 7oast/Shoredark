@@ -2,14 +2,28 @@ module.exports = {
   name: 'retire',
   description: `Counts until Titancube and Aiobahn's retirement.`,
   execute(msg, args) {
-    let tcRetire = new Date("Apr 27, 2019 08:00:00 +0900").getTime()
+    // Today
+    const now = new Date().getTime()
+    let soldiers = [];
+
+    // Make a new soldier
+    function soldier(name, retire) {
+      this.name = name;
+      this.retire = new Date(retire).getTime();
+      this.distance = retire - now;
+      this.remain = calculateRetire(this.distance);
+      soldiers.push(this);
+    }
+
+    const Aiobahn = new soldier(Aiobahn, "Oct 13, 2019 08:00:00");
+    const Aresynth = new soldier(Aresynth, "Oct 14, 2019 08:00:00");
+
     let aioRetire = new Date("Oct 13, 2019 08:00:00 +0900").getTime()
     let aresynthRetire = new Date("Oct 14, 2019 08:00:00 +0900").getTime()
     // Get todays date and time
-    let now = new Date().getTime()
+    
 
     // Find the tcDistance between now and the count down date
-    let tcDistance = tcRetire - now
     let aioDistance = aioRetire - now
     let aresynthDistance = aresynthRetire - now
 
@@ -24,7 +38,6 @@ module.exports = {
 
     // MSG!
     msg.channel.send(`
-Titancube 전역까지 ${calculateRetire(tcDistance)} 남았습니다.
 Aiobahn 전역까지 ${calculateRetire(aioDistance)} 남았습니다.
 Aresynth 전역까지 ${calculateRetire(aresynthDistance)} 남았습니다.
 `)

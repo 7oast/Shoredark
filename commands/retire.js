@@ -18,14 +18,16 @@ module.exports = {
 //     const Aiobahn = new soldier("Aiobahn", "Oct 13, 2019 08:00:00");
 //     const Aresynth = new soldier("Aresynth", "Oct 14, 2019 08:00:00");
 
-    let aioRetire = new Date("Oct 13, 2019 08:00:00 +0900").getTime()
-    let aresynthRetire = new Date("Oct 14, 2019 08:00:00 +0900").getTime()
+    let aioRetire = new Date("Oct 13, 2019 08:00:00 +1000").getTime()
+    let aresynthRetire = new Date("Oct 14, 2019 08:00:00 +1000").getTime()
+    let toastRetire = new Date("Apr 02, 2021 08:00:00 +1000").getTime()
     // Get todays date and time
     
 
     // Find the tcDistance between now and the count down date
     let aioDistance = aioRetire - now
     let aresynthDistance = aresynthRetire - now
+    let toastDistance = toastRetire - now
 
     // Time calculations for days, hours, minutes and seconds
     function calculateRetire(Distance) {
@@ -44,6 +46,7 @@ module.exports = {
     msg.channel.send(`
 Aiobahn 전역까지 ${calculateRetire(aioDistance)} 남았습니다.
 Aresynth 전역까지 ${calculateRetire(aresynthDistance)} 남았습니다.
+7OAST 전역까지 ${calculateRetire(toastDistance)} 남았습니다.
 `)
   },
 };

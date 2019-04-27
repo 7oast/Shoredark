@@ -12,7 +12,7 @@ module.exports = {
       this.retire = new Date(retire).getTime();
       this.distance = retire - now;
       // this.remain = calculateRetire(this.distance);
-      soldiers.push(this);
+      soldiers.push({name: this.name, retire: this.retire, distance: this.distance});
     }
 
     const Aiobahn = new soldier("Aiobahn", "Oct 13, 2019 08:00:00");

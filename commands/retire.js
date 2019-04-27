@@ -4,19 +4,19 @@ module.exports = {
   execute(msg, args) {
     // Today
     const now = new Date().getTime()
-    let soldiers = [];
+//     let soldiers = [];
 
-    // Make a new soldier
-    function soldier(name, retire) {
-      this.name = name;
-      this.retire = new Date(retire).getTime();
-      this.distance = retire - now;
-      // this.remain = calculateRetire(this.distance);
-      soldiers.push({name: this.name, retire: this.retire, distance: this.distance});
-    }
+//     // Make a new soldier
+//     function soldier(name, retire) {
+//       this.name = name;
+//       this.retire = new Date(retire).getTime();
+//       this.distance = retire - now;
+//       // this.remain = calculateRetire(this.distance);
+//       soldiers.push({name: this.name, retire: this.retire, distance: this.distance});
+//     }
 
-    const Aiobahn = new soldier("Aiobahn", "Oct 13, 2019 08:00:00");
-    const Aresynth = new soldier("Aresynth", "Oct 14, 2019 08:00:00");
+//     const Aiobahn = new soldier("Aiobahn", "Oct 13, 2019 08:00:00");
+//     const Aresynth = new soldier("Aresynth", "Oct 14, 2019 08:00:00");
 
     let aioRetire = new Date("Oct 13, 2019 08:00:00 +0900").getTime()
     let aresynthRetire = new Date("Oct 14, 2019 08:00:00 +0900").getTime()
@@ -37,13 +37,13 @@ module.exports = {
     }
 
     // MSG!
-    for (let soldier in soldiers) {
-      msg.channel.send(`${soldier.name}의 전역까지 ${calculateRetire(soldier.distance)} 남았습니다`)
-    }
+//     for (let soldier in soldiers) {
+//       msg.channel.send(`${soldier.name}의 전역까지 ${calculateRetire(soldier.distance)} 남았습니다`)
+//     }
     
-//     msg.channel.send(`
-// Aiobahn 전역까지 ${calculateRetire(aioDistance)} 남았습니다.
-// Aresynth 전역까지 ${calculateRetire(aresynthDistance)} 남았습니다.
-// `)
+    msg.channel.send(`
+Aiobahn 전역까지 ${calculateRetire(aioDistance)} 남았습니다.
+Aresynth 전역까지 ${calculateRetire(aresynthDistance)} 남았습니다.
+`)
   },
 };

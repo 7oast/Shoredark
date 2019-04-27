@@ -21,6 +21,9 @@ module.exports = {
     let aioRetire = new Date("Oct 13, 2019 08:00:00 +1000").getTime()
     let aresynthRetire = new Date("Oct 14, 2019 08:00:00 +1000").getTime()
     let toastRetire = new Date("Apr 02, 2021 08:00:00 +1000").getTime()
+    let soochanRetire = new Date("Jul 16, 2021 08:00:00 +1000").getTime()
+    let esaiRetire = new Date("Jul 10, 2021 08:00:00 +1000").getTime()
+
     // Get todays date and time
 
 
@@ -28,7 +31,8 @@ module.exports = {
     let aioDistance = aioRetire - now
     let aresynthDistance = aresynthRetire - now
     let toastDistance = toastRetire - now
-
+    let soochanDistance = soochanRetire - now
+    let esaiDistance = esaiRetire - now
     // Time calculations for days, hours, minutes and seconds
     function calculateRetire(Distance) {
       let days = Math.floor(Distance / (1000 * 60 * 60 * 24))
@@ -47,6 +51,8 @@ module.exports = {
 Aiobahn 전역까지 ${calculateRetire(aioDistance)} 남았습니다.
 Aresynth 전역까지 ${calculateRetire(aresynthDistance)} 남았습니다.
 7OAST 전역까지 ${calculateRetire(toastDistance)} 남았습니다.
+Soochan 전역까지 ${calculateRetire(soochanDistance)} 남았습니다.
+ESAI 전역까지 ${calculateRetire(esaiDistance)} 남았습니다.
 `)
   },
 };

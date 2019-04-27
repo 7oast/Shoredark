@@ -4,12 +4,14 @@ module.exports = {
   execute(msg, args) {
     let tcRetire = new Date("Apr 27, 2019 08:00:00 +0900").getTime()
     let aioRetire = new Date("Oct 13, 2019 08:00:00 +0900").getTime()
+    let aresynthRetire = new Date("Oct 14, 2019 08:00:00 +0900").getTime()
     // Get todays date and time
     let now = new Date().getTime()
 
     // Find the tcDistance between now and the count down date
     let tcDistance = tcRetire - now
     let aioDistance = aioRetire - now
+    let aresynthDistance = aresynthRetire - now
 
     // Time calculations for days, hours, minutes and seconds
     function calculateRetire(Distance) {
@@ -24,6 +26,7 @@ module.exports = {
     msg.channel.send(`
 Titancube 전역까지 ${calculateRetire(tcDistance)} 남았습니다.
 Aiobahn 전역까지 ${calculateRetire(aioDistance)} 남았습니다.
+Aresynth 전역까지 ${calculateRetire(aresynthDistance)} 남았습니다.
 `)
   },
 };

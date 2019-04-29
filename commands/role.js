@@ -17,6 +17,7 @@ module.exports = {
         case "Admin":
         case "Nas":
         case "Pirate":
+        case "Nas-admin":
         return false;
         default: return true;
       }

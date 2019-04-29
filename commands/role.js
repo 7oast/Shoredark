@@ -24,7 +24,7 @@ module.exports = {
     }
 
     // Check if the role is existing and achievable by normal members of server.
-    if (!checkPermission(rolename)) return;
+    if (!checkPermission(role)) return;
 
     // Gives role if the person doesn't have it and takes it back when the one has.
     if (msg.member.roles.has(allowedRole.id)) {

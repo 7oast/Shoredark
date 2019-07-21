@@ -20,7 +20,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start" : "node shoredark.js",
+    "start": "node shoredark.js",
     "test": ""
   },
   "repository": {
